@@ -1,0 +1,37 @@
+@media only screen and (max-width: 760px) {
+    .receiver-sheet{
+        width: 90%;
+        padding: 1em;
+    }
+    .left-box{
+        display: none !important;
+    }
+    .receiver-sheet .right-box{
+        width: 100%;
+    }
+    .active-button{
+        height: 6vmax;
+        width: 13vmax;
+        border-radius: 4vmax;
+        font-size: 3.1vmin;
+    }
+    .non-active-button{
+        height: 6vmax;
+        width: 13vmax;
+        border-radius: 4vmax;
+        font-size: 3.1vmin;
+    }
+    .terms-condition{
+        margin: 10% 0% 0% 19%;
+    }
+    .button-group{
+        margin: 4.3% 0% 0% 17%;
+    }
+    .receiver-sheet-sm{
+        height: 500px;
+        width: 100%;
+    }
+    .register-dialog{
+        left: -0.3vw;
+    }
+  }

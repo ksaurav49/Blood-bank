@@ -1,0 +1,375 @@
+/* ===============
+                    default styles overriding ============================================== */
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: rgb(247, 247, 247);
+    padding: 0;
+    margin: 0;
+    color: #333;
+    font-family: sans-serif;
+    height: 100%;
+    font-size: 14px;
+    line-height: 1.57142857;
+    font-weight: 400;
+}
+
+
+
+/* ================
+                    receiver signup page ===================================================== */
+.receiver-sheet{
+    margin: 135px auto;
+    height: 700px;
+    width: 60%;
+    box-shadow: 1px 1px 10px rgb(224, 224, 224);
+    background-color: white;
+    display: flex;
+}
+
+/*----------------
+                    receiver signup page left box -------------------------------------------  */
+.receiver-sheet .left-box {
+    width: 50%;
+    height: 100%;
+    background-color: #ec0027a1;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-blood-drop{
+    height: 125px;
+    width: 125px;
+    align-self: center;
+}
+.mark{
+    margin: 4rem auto;
+}
+.check-border{
+    display: flex;
+    border:0.25rem solid white;
+    border-radius: 50%;
+    height: 4rem;
+    width:  4rem;
+    align-self: center;
+}
+.check-svg{
+    font-size: 4rem !important;
+    color: white;
+}
+.signup-banner{
+    margin: 70px auto;
+    display: flex;
+    flex-direction: column;
+}
+.signup-head{
+    font-size: 3.5rem;
+    color: white;
+    font-weight: 100;
+    letter-spacing: 1.1px;
+}
+.signup-sub-head{
+    text-align: center;
+    /* padding: 0px 0px; */
+    color: rgb(230 230 230);
+    font-weight: 100;
+    font-family: Arial;
+    letter-spacing: 1px;
+    line-height: 15px;
+    font-size: 13px;
+}
+
+/* -------------
+                receiver signup page right box ------------------------------------------------- */
+.receiver-sheet .right-box{
+    width: 50%;
+    position: relative;
+}
+.cancel-cross{
+    padding: 5px 10px;
+    color: rgb(161, 161, 161);
+    font-weight: 700;
+    float: right;
+}
+.inputs-boxes{
+    margin: 5% 10% 0% 19%;
+    line-height: 5;
+}
+.inputs {
+    position: relative;
+}
+.inputs select{
+    color: #d3d3d3;
+}
+.inputs input,select {
+    width: 85%;
+    border: 0;
+    outline: 0;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #d3d3d3;
+    box-shadow: none;
+    color: #111;
+    font-weight: 600;
+    background-color: transparent;
+}
+.inputs input,select:focus {
+    outline: none;
+}
+.inputs label{
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    color: #d3d3d3;
+    transition: 0.2s all;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+}
+.inputs input:focus~label,
+.inputs input:valid~label {
+  font-size: 12px;
+  font-weight: 600;
+  top: -17px;
+  color: rgb(103, 159, 255);
+}
+.inputs input:focus,
+.inputs input:valid {
+    border-color: rgb(103, 159, 255);
+  }
+.label-icons{
+    font-size: 21px !important;
+    position: relative;
+    top:2px;
+}
+.terms-condition{
+    margin: 7% 0% 0% 30%;;
+    color: rgb(90, 90, 90);
+    font-size: 13px;
+}
+.terms-condition a{
+    text-decoration: none;
+    color: rgb(103, 159, 255);
+}
+.button-group{
+    margin: 4.1% 0% 0% 18%;
+}
+.button-group-center{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.active-button{
+    border: 1px solid #F35E77;
+    height: 3.1vmax;
+    width: 9vmax;
+    border-radius: 2vmax;
+    background-color: #F35E77;
+    color: white;
+    font-size: 2.1vmin;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.non-active-button{
+    border: 3px solid #F35E77;
+    height: 3.1vmax;
+    width: 9vmax;
+    border-radius: 2vmax;
+    background-color: transparent;
+    color: rgb(90, 90, 90);
+    font-size: 2.1vmin;
+    letter-spacing: 1px; 
+    cursor: pointer;
+}
+.or-divider{
+    color: rgb(90, 90, 90);
+    font-weight: 700;
+    padding: 0.7em;
+}
+.active-button:focus{
+    outline: none;
+}
+.non-active-button:focus{
+    outline: none;
+}
+
+/* =================
+                    Login styles ===================================================== */
+.login-content{
+    margin-top: 35%;
+}
+.forgot-password{
+    position: absolute;
+    right: 20%;
+    margin-top: -11px;
+    color: rgb(103, 159, 255);
+}
+.login-button-group{
+    position: relative;
+    /* top: 53%; */
+    left: 16%;
+    /* bottom: 42%; */
+    top: 7vmax;
+}
+.register-dialog{
+    display: block;
+    margin: 5vmin;
+    position: relative;
+    left: 1vmax;
+    color: rgba(141, 140, 140, 0.719);
+    font-weight: 600;
+}
+.register-dialog a{
+    text-decoration: none;
+    color: rgb(103, 159, 255);
+}
+
+/* =============
+                Hospital Dashboard Styles ============================================================== */
+
+.header-parent-box{
+    height: 72px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.15);
+    margin-bottom: 2px;
+    background-color: white;
+}
+.left-header-content{
+}
+.header-parent-container{
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.header-logo{
+    height:56px;
+    width:56px;  
+    margin: 8px; 
+    cursor: pointer; 
+}
+.brand-name{
+    color: rgb(90, 90, 90);
+    font-weight: 700;
+    font-size: 2em;
+    position: absolute;
+    top: 20px;
+    cursor: pointer;
+}
+.right-header-content{
+    width: 47%;
+    display: flex;
+    justify-content: space-between;
+    /* position: relative; */
+    /* top: 6px; */
+    align-items: center;
+}
+.add-availability{
+    border: 1px solid #FF8C00;
+    height: 3.1vmax;
+    width: 16vmax;
+    border-radius: 2vmax;
+    background-color: #FF8C00;
+    color: white;
+    font-size: 1.8vmin;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: 600;
+}
+/* -----------
+                main section ----------------------------------------------------- */
+.main-section-container{
+    padding: 5% 12% 0px 12%;
+}
+.table-container{
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+}
+.table-container thead {
+    background: rgb(243, 243, 243);
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    align-items: center;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    font-feature-settings: 'cv07' on,'kern' off;
+    color:  #484848;;
+}
+.table-container tr{
+    height: 64px;
+    vertical-align: middle;
+    text-align: center;
+}
+.table-container th{ 
+}
+.table-container td{
+    font-size: 14px;
+    line-height: 1.57142857;
+    font-weight: 400;
+}
+.blood-group-data{
+    background-color: rgb(252, 239, 241);
+    padding: 6px 28px;
+    border-radius: 15px;
+    color: rgb(255 37 70);
+}
+.edit-icon{
+    color: rgb(87, 87, 87)!important;
+    cursor: pointer;
+}
+table input{
+    border: none;
+    width: 20%;
+}
+/* ============
+                add availabilty ================================================================== */
+.notification-icon{
+    color: #F35E77;
+    font-size: 40px!important;
+}
+.notification-badge{
+
+}
+.heading-sm{
+    font-weight: 600;
+    color: rgb(141, 141, 141);
+}
+.radio-inputs{
+    display: flex;
+    justify-content: space-around;
+}
+.inputs-sm{
+    line-height: 3!important;
+}
+
+    .error{
+    line-height: 1;
+    margin-bottom: 5px;
+    font-size: 11px; 
+    color: red; 
+    display: none;
+    font-weight: bold; 
+    position: relative;
+    bottom: 11px;
+}
+.email-error{
+    line-height: 1;
+    margin-bottom: 5px;
+    font-size: 11px; 
+    color: red; 
+    font-weight: bold; 
+    position: relative;
+    bottom: 11px;
+}
+
+.page-heading{
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    padding: 15px 0 15px 0;
+    font-weight: 700;
+    
+}

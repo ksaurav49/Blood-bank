@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Signup</title>
+
+    <!-- link to css file -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./css/responsive-style.css" />
+
+    <!-- link to google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div class="receiver-sheet">
+        <div class="left-box">
+            <div class="signup-banner">
+                <img src="/assets/img/logo.png" alt="" class="logo-blood-drop">
+                <span class="signup-head">Sign up</span>
+                <span class="signup-sub-head">to use all features <br /> of the application</span>
+            </div>
+            <div class="mark">
+                <div class="check-border"><i class="material-icons check-svg">check</i></div>
+            </div>
+        </div>
+        <div class="right-box">
+            <i class="material-icons label-icons cancel-cross">cancel</i>
+            <div class="inputs-boxes">
+                <form>
+                <div class="inputs">
+                    <input type="text" id="NAME" required>
+                    <label for="NAME"><i class="material-icons label-icons">person</i>&nbsp;HOSPITAL NAME :</label>
+                    <div>
+                        <div class="inputs">
+                            <input type="number" id="CONTACT_NO" required>
+                            <label for="CONTACT_NO"><i class="material-icons label-icons">smartphone</i>&nbsp; CONTACT
+                                NO.</label>
+                        </div>
+                        <div class="inputs">
+                            <input type="text" id="EMAIL_ID" required>
+                            <label for="EMAIL_ID"><i class="material-icons label-icons"> mail</i>&nbsp; EMAIL ID
+                                :</label>
+                            <div>
+                                <div class="inputs">
+                                    <input type="text" id="ADDRESS" required>
+                                    <label for="ADDRESS"><i class="material-icons label-icons"> business</i>&nbsp;
+                                        ADDRESS :</label>
+                                </div>
+                                <div class="inputs">
+                                    <input type="password" id="PASSWORD" required>
+                                    <label for="PASSWORD"><i class="material-icons label-icons"> lock</i>&nbsp;
+                                        PASSWORD</label>
+                                </div>
+                                <div class="inputs">
+                                    <input type="password" id="CONFIRM_PASSWORD" required>
+                                    <label for="CONFIRM_PASSWORD"><i class="material-icons label-icons"> lock</i>&nbsp;
+                                        CONFIRM PASSWORD</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div></div>
+                    </div>
+                    
+                </div>
+                
+
+            </div>
+        
+            <div class="terms-condition"><input type="checkbox" required>&nbsp;&nbsp;&nbsp;I aggree to <a href="#">terms & conditions</a> </div>
+            <div class="button-group">
+                <button class="active-button" type="submit">Register</button>
+            </form>
+                <span class="or-divider">or</span>
+                <button class="non-active-button">Login</button>
+            </div>
+        </div>
+</body>
+
+</html>
