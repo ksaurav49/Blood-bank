@@ -117,19 +117,21 @@ function isValidEmail(email){
 	Function for Valid Name
 */
 function isValidName(name){
+	var regex = /^[a-zA-Z ]{2,30}$/;
 
-	if(name === "" || name === null){
-		document.getElementById("name_label").style.color = "red";
+    if (regex.test(name)) {
+    	document.getElementById("name_label").style.color = "#679FFF";
+		document.getElementById("email").style.borderColor = "#679FFF";
+		document.getElementById("name_text").style.display = "none";
+        return true;
+    }
+    else {
+    	document.getElementById("name_label").style.color = "red";
 		document.getElementById("name").style.borderColor = "red";
 		document.getElementById("name_text").style.display = "block";
 		document.getElementById("name_text").innerHTML = "*NOTE: Inavlid Name";
-		return false;
-	}else{
-		document.getElementById("name_label").style.color = "#679FFF";
-		document.getElementById("email").style.borderColor = "#679FFF";
-		document.getElementById("name_text").style.display = "none";
-		return true;
-	}
+        return false;
+    }
 
 }
 

@@ -28,7 +28,7 @@ class ReceiverModel extends CI_Model
 =============== Function For Displaying Blood Sample ===============================
 */
     public function getBloodSample($type){
-    	return $this->db->query("select * from blood_info as binfo 
+    	return $this->db->query("select binfo.*,h.id as h_id,h.name,h.mobile,h.address from blood_info as binfo 
             inner join hospital as h on binfo.hospital_id=h.id where binfo.type='$type'");
     }
 	

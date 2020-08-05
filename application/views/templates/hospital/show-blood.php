@@ -1,7 +1,11 @@
-
+<p class="page-heading">Available Blood Samples</p>
 <!-- main section start ========================================================================= -->
-<div class="main-section-container">
-    <p class="page-heading">Added Blood Samples</p>
+<div class="table-subheading">
+    <div class="add-availability-container">
+        <a href="<?=BASE_URL?>hospital/add">
+            <button class="add-new-availability">+ ADD NEW</button>
+        </a>
+    </div>
     <table class="table-container">
         <thead>
             <tr>
@@ -35,6 +39,15 @@
             </tr>
         </thead>
         <tbody>
+            <div class="threshold-box">
+                    <?php
+                    if($bloodData->num_rows() == 0){ ?>
+                    <span>
+                        <img src='<?=BASE_URL?>static/img/sad.jpg'><br>
+                        no sample added
+                    </span>
+                    <?php } ?>
+                </div>
             <?php
             $i = 0;
             foreach ($bloodData->result() as $row)
@@ -60,7 +73,7 @@
                         <span class="blood-group-data"> <?=$row->type?></span>
                     </td>
                     <td>
-                        <input type="text" id="unit<?=$row->id?>" value="<?=$row->unit?>" readonly>
+                        <input type="number" id="unit<?=$row->id?>" value="<?=$row->unit?>" readonly>
                     </td>
                     <td>
                         <i id="unit_edit<?=$row->id?>" onclick="onEditClick(<?=$row->id?>)" class="material-icons edit-icon">
@@ -91,7 +104,7 @@
                 document.getElementById('unit_edit'+id).style.display = "block";
                 document.getElementById('unit_save'+id).style.display = "none";
                 document.getElementById('unit'+id).readOnly = true;
-                swal("Great!", "Blood-info updated..", "success");
+                swal("Blood-info updated..");
             }else{
                 swal("Opps!!!", "Something went wrong..", "error");
             }

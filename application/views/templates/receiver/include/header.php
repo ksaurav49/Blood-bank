@@ -23,16 +23,33 @@
     <div class="header-parent-box">
         <div class="header-parent-container">
             <div class="left-header content">
-                <img class="header-logo" src="<?=BASE_URL?>static/img/logo.png" alt="">
-                <span class="brand-name">Blood Bank</span>
+                <a href="<?=BASE_URL?>">
+                    <img class="header-logo" src="<?=BASE_URL?>static/img/logo.png" alt="">
+                    <span class="brand-name">Blood Bank</span>
+                </a>
             </div>
             <div class="right-header-content">
-                <button class="active-button small-font">Requested Samples</button>
-                <button class="non-active-button">Sign in</button>
-                <div class="tooltip">
-                    <i class="material-icons toggle-off-icon">toggle_off</i>
-                    <span class="tooltiptext">switch to hospital</span>
-                </div>
+                <a href="<?=BASE_URL?>receiver/placedRequest">
+                    <button class="active-button small-font">Requested Samples</button>
+                </a>
+                <?php
+                if ($this->session->userdata('type') == "receiver"){
+                ?>
+                    <a href="<?=BASE_URL?>receiver/logout">
+                        <button class="non-active-button">Logout</button>
+                    </a>
+                <?php } else { ?>
+                    <a href="<?=BASE_URL?>login">
+                    <button class="non-active-button">Sign in</button>
+                </a>
+                <?php } ?>
+                
+                <a href="<?=BASE_URL?>hospitalLogin">
+                    <div class="tooltip">
+                        <i class="material-icons toggle-off-icon">toggle_off</i>
+                        <span class="tooltiptext">switch to hospital</span>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

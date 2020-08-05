@@ -24,7 +24,7 @@
                         :</label>
                         <span id="email_text" class="error"></span>
                         <div class="inputs">
-                            <input  type="text" name="password" value="<?php echo set_value('password'); ?>" id="password" required>
+                            <input  type="password" name="password" value="<?php echo set_value('password'); ?>" id="password" required>
                             <label title="Password Should be greater than 5 character" id="password_label" for="password"><i class="material-icons label-icons"> lock</i>&nbsp;
                             PASSWORD</label>
                             <span id="password_text" class="error"></span>

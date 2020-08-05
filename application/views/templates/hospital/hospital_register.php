@@ -100,7 +100,7 @@
         $msg=$this->session->flashdata('success');
     if($msg == "yes"){  ?>
          <script> swal("Hospital added!!!", "See Blood Sample request now..", "success");</script>
-    <?php }else{ ?>
+    <?php }else if($msg == "no"){ ?>
         <script>swal("opps !!!", "Something went wrong...", "error");</script>
    <?php     
     }

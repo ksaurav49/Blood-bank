@@ -4,9 +4,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class ReceiverController extends CI_Controller {
 
 /*
+=============== Function For Website Load ====================================
+*/
+    public function index(){
+         $type = "A+";
+        if($this->session->userdata('type') == "hospital"){
+            $this->load->model("AuthHospitalModel");
+            $cdata['count']=$this->AuthHospitalModel->getCountOfRequests();
+            $this->load->view('templates/hospital/include/header',$cdata);
+        }else{
+            $this->load->view('templates/receiver/include/header');
+        }
+        $data['getBloodSample']=$this->ReceiverModel->getBloodSample($type);
+        $data['active_uri'] = $type;
+        $this->load->view('templates/receiver/blood-samples',$data);
+    }
+
+/*
 =============== Function For Receiver Login View ====================================
 */
-	public function index(){
+	public function login(){
          $this->load->view('templates/receiver/include/header');
          $this->load->view('templates/receiver/receiver_login');
     }
@@ -57,7 +74,7 @@ class ReceiverController extends CI_Controller {
     public function receiverLoginSubmit(){
 
         if($this->form_validation->run('login') == FALSE){
-            $this->index();
+            $this->login();
         }else{
 
             $receiverData = array(
@@ -74,6 +91,7 @@ class ReceiverController extends CI_Controller {
 
                     $receiverSessionData = array(
                       'isLoggedIn' => TRUE,
+                      'receiver_id' => $row->id,
                       'type' => "receiver",
                       'email' => $row->email,
                       'name' => $row->name,
@@ -85,14 +103,14 @@ class ReceiverController extends CI_Controller {
 
                 }else{
                     $this->session->set_flashdata('success', "no");
-                    redirect(base_url(''),'refresh');
+                    redirect(base_url('/login'),'refresh');
                 }
 
-                redirect(base_url('home'),'refresh');
+                redirect(base_url(''),'refresh');
 
             }else{
                 $this->session->set_flashdata('success', "notExist");
-                redirect(base_url(''),'refresh');
+                redirect(base_url('/login'),'refresh');
             }
 
         }
@@ -102,13 +120,33 @@ class ReceiverController extends CI_Controller {
 =============== Function For Displaying Blood Sample ===============================
 */
     public function getBloodSample(){
-        
         $type = $this->uri->segment(2);
+        if($this->session->userdata('type') == "hospital"){
+            $this->load->model("AuthHospitalModel");
+            $cdata['count']=$this->AuthHospitalModel->getCountOfRequests();
+            $this->load->view('templates/hospital/include/header',$cdata);
+        }else{
+            $this->load->view('templates/receiver/include/header');
+        }
         $data['getBloodSample']=$this->ReceiverModel->getBloodSample($type);
         $data['active_uri'] = $type;
-        $this->load->view('templates/hospital/include/header');
-        $this->load->view('templates/hospital/blood_request',$data);
+        $this->load->view('templates/receiver/blood-samples',$data);
 
+    }
+
+ public function placeRequestSubmit(){
+        $id = $this->input->post("id");
+
+        if (!$this->session->userdata('isLoggedIn')){
+            echo "login";
+        }else if($this->session->userdata('type') == "hospital"){
+            echo "hospital";
+        }else if($this->session->userdata('type') == "receiver"){
+            $r_id = $this->session->userdata('receiver_id');
+            $query = $this->db->query("insert into requested_sample(receiver_id,blood_info_id)
+            values('$r_id','$id')");
+        echo "true";
+        }
     }
     
 }

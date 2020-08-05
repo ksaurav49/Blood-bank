@@ -25,7 +25,7 @@
                         :</label>
                         <span class="error" id="email_text" ></span>
                         <div class="inputs">
-                            <input  type="text" title="Password Should be greater than 5 character" name="password" value="<?php echo set_value('password'); ?>" id="password" required>
+                            <input  type="password" title="Password Should be greater than 5 character" name="password" value="<?php echo set_value('password'); ?>" id="password" required>
                             <label title="Password Should be greater than 5 character" id="password_label" for="password"><i class="material-icons label-icons"> lock</i>&nbsp;
                             PASSWORD</label>
                             <span class="error" id="password_text"></span>
@@ -40,11 +40,24 @@
                     <a href="<?=BASE_URL?>register">
                         <button type="button" class="non-active-button">Register</button>
                     </a>
-                    <span class="register-dialog">Not registerd ? <a class="a">register here</a></span>
+                    <span class="register-dialog">Not registerd ? <a class="a" href="<?=BASE_URL?>register">register here</a></span>
                 </div>
             </form>
         </div>
     </div>
+
+<?php     
+    if($this->session->flashdata('success')){
+        $msg=$this->session->flashdata('success');
+    if($msg == "no"){  ?>
+         <script> swal("opps!!!", "Wrong Password..", "error");</script>
+    <?php }else if($msg == "notExist"){ ?>
+        <script>swal("opps !!!", "User dosenot exist...", "error");</script>
+   <?php     
+    }
+    }
+
+?>
 
 </body>
 

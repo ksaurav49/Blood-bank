@@ -16,6 +16,16 @@ class AuthHospitalModel extends CI_Model
     }
 
 /*
+=============== Function to get count of all request =======================
+*/
+    public function getCountOfRequests(){
+        $hospital_id = $this->session->userdata('id');
+        return $this->db->query("select * from requested_sample as rs inner join
+         blood_info as binfo on rs.blood_info_id=binfo.id where binfo.hospital_id='$hospital_id'")->num_rows();
+
+    }
+
+/*
 =============== Function to add blood-info in DB ====================================
 */
     public function addBlood($bloodData){
@@ -54,7 +64,7 @@ class AuthHospitalModel extends CI_Model
         return $this->db->query("select * from requested_sample as rs 
             inner join blood_info as binfo  on rs.blood_info_id=binfo.id  
             inner join receiver as r on rs.receiver_id=r.id
-            where binfo.hospital_id=$hospital_id");
+            where binfo.hospital_id=$hospital_id order by rs.id DESC");
 
     }
 

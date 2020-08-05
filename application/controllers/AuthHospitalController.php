@@ -20,7 +20,22 @@ class AuthHospitalController extends CI_Controller
 */
 
     public function home(){
-    	$this->load->view('templates/hospital/home');
+    	$cdata['count']=$this->AuthHospitalModel->getCountOfRequests();
+        $type = "A+";
+        $data['getBloodSample']=$this->ReceiverModel->getBloodSample($type);
+        $data['active_uri'] = $type;
+        $this->load->view('templates/hospital/include/header',$cdata);
+        $this->load->view('templates/receiver/blood-samples',$data);
+    }
+
+    public function getBloodSampleForHospital(){
+        $cdata['count']=$this->AuthHospitalModel->getCountOfRequests();
+        $type = $this->uri->segment(2);
+        $data['getBloodSample']=$this->ReceiverModel->getBloodSample($type);
+        $data['active_uri'] = $type;
+        $this->load->view('templates/receiver/include/header',$cdata);
+        $this->load->view('templates/receiver/blood-samples',$data);
+
     }
 
 /*
@@ -28,7 +43,8 @@ class AuthHospitalController extends CI_Controller
 */
 
     public function addBlood(){
-        $this->load->view('templates/hospital/include/header');
+        $data['count']=$this->AuthHospitalModel->getCountOfRequests();
+        $this->load->view('templates/hospital/include/header',$data);
         $this->load->view('templates/hospital/add_availability');
     }
 
@@ -58,7 +74,7 @@ class AuthHospitalController extends CI_Controller
                 $this->session->set_flashdata('success', "no");
             }
             
-            redirect(base_url('hospital/add'),'refresh');
+            redirect(base_url('hospital/show-blood'),'refresh');
         }
     }
    
@@ -68,8 +84,9 @@ class AuthHospitalController extends CI_Controller
 */
 
     public function showBlood(){
+        $cdata['count']=$this->AuthHospitalModel->getCountOfRequests();
         $data['bloodData']=$this->AuthHospitalModel->showBlood();
-        $this->load->view('templates/hospital/include/header');
+        $this->load->view('templates/hospital/include/header',$cdata);
         $this->load->view('templates/hospital/show-blood',$data);
     } 
 
@@ -105,8 +122,9 @@ class AuthHospitalController extends CI_Controller
 =============== Function For Requested Blood Sample ===============================
 */
     public function requestBloodSample(){
+        $cdata['count']=$this->AuthHospitalModel->getCountOfRequests();
         $data['requestedBloodData']=$this->AuthHospitalModel->requestBloodSample();
-        $this->load->view('templates/hospital/include/header');
+        $this->load->view('templates/hospital/include/header',$cdata);
         $this->load->view('templates/hospital/blood_request',$data);
 
     }

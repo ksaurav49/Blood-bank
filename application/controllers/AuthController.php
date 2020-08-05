@@ -39,7 +39,7 @@ public function userSubmit(){
 	       }
        }
         
-        redirect(base_url('home'),'refresh');
+        redirect(base_url(''),'refresh');
         
 }
 public function logout(){
